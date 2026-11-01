@@ -87,7 +87,7 @@ function calc(){const md=mbDay();[...$('acts').children].forEach((tr,i)=>tr.chil
  if(!legs.length){$('tot').textContent=gb(md*7)+' / week';$('res').innerHTML='<tr><td colspan="4" class="hint">Add a destination to see per-country cost.</td></tr>';$('cost').textContent='–';$('cnote').innerHTML='Pick a destination to see what this would cost. '+RSRC+'.';writeURL();return}
  legs.forEach(l=>{const mb=md*l.d,r=rateOf(l.c),c=mb/1000*r.min_eur_per_gb;tmb+=mb;tc+=c;tmax+=mb/1000*r.max_eur_per_gb;const tr=document.createElement('tr');tr.innerHTML='<td></td><td>'+l.d+'</td><td>'+gb(mb)+'</td><td>'+eur(c)+' <span class="hint">('+eur(r.min_eur_per_gb)+'/GB)</span></td>';tr.children[0].textContent=l.c;$('res').appendChild(tr)});
  $('tot').textContent=gb(tmb);$('cost').textContent=eur(tc);
- $('cnote').innerHTML='At each country\'s Cheapest-network rate (the default setting), paid from a balance with no monthly fee that never expires. Best-coverage networks can cost more (up to '+eur(tmax)+' for this trip). '+RSRC+' · see '+PRICING+'.';
+ $('cnote').innerHTML='At each country\'s Cheapest-network rate (the default setting), paid from a balance with no monthly fee that stays while your account is active. Best-coverage networks can cost more (up to '+eur(tmax)+' for this trip). '+RSRC+' · see '+PRICING+'.';
  window.SHARE_TEXT='My trip data budget: '+gb(tmb)+' for '+legs.map(l=>l.c+' ('+l.d+'d)').join(', ')+'. Plan yours:';writeURL()}
 function add(n,d){if(!rateOf(n))return false;const e=legs.find(l=>l.c===n);if(e)e.d=d;else legs.push({c:n,d});draw();return true}
 $('add').onclick=()=>{const v=$('cty').value.trim(),m=RATES.find(r=>r.country.toLowerCase()===v.toLowerCase());if(m&&add(m.country,Math.max(1,+$('dys').value||7)))$('cty').value='';else $('cty').focus()};
