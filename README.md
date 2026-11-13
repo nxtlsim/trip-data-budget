@@ -9,7 +9,7 @@ How much mobile data do you need for a trip? Pick destinations and days, choose 
 ## How it works
 - **Location prefill:** the approximate country comes from NXTL's public, IP-based `geo/country` endpoint, with no permission prompt. If that fails, it falls back to the browser language region. Nothing is stored.
 - **Estimates:** MB per hour per activity are rounded estimates, not measurements, plus a 10% buffer for background use. Edit them in `docs/index.html` (`ACTS`).
-- **Cost line:** shows the cost at the NXTL pay-as-you-go rate for each country, using the Cheapest-network rate, which is the default setting. Rates load live from the public endpoint `https://nxtlsim.com/wp-json/nxtl-app/v1/pricing/countries`, which allows CORS from this site. If it can't be reached, the app uses the bundled `docs/rates.json` snapshot (checked 2026-10-26). Current prices: https://nxtlsim.com/pricing/
+- **Cost line:** shows the cost at the NXTL pay-as-you-go rate for each country, using the lowest published network rate per country (you pay the rate of the network you actually use; the Cheapest preference is not a price ceiling), plus the highest listed rate as an upper bound. The result also explains the upfront purchase (US$11.99 on the web, including US$10.00 usable balance) and links to the country's rates. Rates load live from the public endpoint `https://nxtlsim.com/wp-json/nxtl-app/v1/pricing/countries`, which allows CORS from this site. If it can't be reached, the app uses the bundled `docs/rates.json` snapshot (checked 2026-10-26). Current prices: https://nxtlsim.com/pricing/
 
 ## Share links
 `?d=Turkey:7,Japan:5&p=normal`, or custom hours: `&h=maps:1,social:2`
