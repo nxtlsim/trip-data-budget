@@ -11,6 +11,8 @@ How much mobile data do you need for a trip? Pick destinations and days, choose 
 - **Estimates:** MB per hour per activity are rounded estimates, not measurements, plus a 10% buffer for background use. Edit them in `docs/index.html` (`ACTS`).
 - **Cost line:** shows the cost at the NXTL pay-as-you-go rate for each country, using the lowest published network rate per country (you pay the rate of the network you actually use; the Cheapest preference is not a price ceiling), plus the highest listed rate as an upper bound. The result also explains the upfront purchase (US$11.99 on the web, including US$10.00 usable balance) and links to the country's rates. Rates load live from the public endpoint `https://nxtlsim.com/wp-json/nxtl-app/v1/pricing/countries`, which allows CORS from this site. If it can't be reached, the app uses the bundled `docs/rates.json` snapshot (checked 2026-10-26). Current prices: https://nxtlsim.com/pricing/
 
+**Read more:** [Pricing a multi-country trip from a public per-GB rate feed](https://dev.to/nxtlsim/pricing-a-multi-country-trip-from-a-public-per-gb-rate-feed-and-why-the-cheapest-rate-isnt-your-4m2m) (Dev.to): how the cost line works and why the cheapest rate isn't your price ceiling.
+
 ## Share links
 `?d=Turkey:7,Japan:5&p=normal`, or custom hours: `&h=maps:1,social:2`
 
